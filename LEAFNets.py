@@ -1545,8 +1545,8 @@ def custom_LEAF_production(Params, task_list):
   #==========================================================================================================
   # Ensure either time window or spatial region was customized
   #==========================================================================================================
-  custom_region = eoParams.is_custom_region(Params)
-  custom_window = eoParams.is_custom_window(Params)
+  custom_region = eoParams.has_custom_region(Params)
+  custom_window = eoParams.has_custom_windows(Params)
   
   if custom_region == False and custom_window == False:
     print('<custom_LEAF_production> No customized parameter was specified !!!!!!!!')
@@ -1656,7 +1656,7 @@ def LEAF_production(inExeParams):
   #==========================================================================================================
   task_list = []
 
-  if eoParams.is_custom_region(Params) == True or eoParams.is_custom_window(Params) == True:   
+  if eoParams.has_custom_region(Params) == True or eoParams.has_custom_windows(Params) == True:   
     # There is a customized spatial region specified in Parameter dictionary 
     print('\n<LEAF_production> Calling custom_composite function......')
     custom_LEAF_production(Params, task_list)
