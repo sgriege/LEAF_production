@@ -1434,7 +1434,7 @@ def SL2P_estimation(Params, task_list):
   #==========================================================================================================
   # Obtain a global Land cover classification map and export it as needed 
   #==========================================================================================================
-  ClassImg = eoAD.get_GlobLC(year, False).uint8().clip(region)
+  ClassImg = eoAD.get_GlobLC(year, False, Params['land_cover']).uint8().clip(region)
   if Is_export_required('parti', ProductList):
     export_one_map(Params, region, ClassImg, 'Partition', task_list)
 

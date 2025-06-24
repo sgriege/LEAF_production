@@ -180,13 +180,14 @@ def get_CanLC(Year):
 #                    2023-Jan-10  Lixin Sun  Added "IsBiome" option, which determines if a biome map should 
 #                                            be returned.
 ####################################################################################################################  
-def get_GlobLC(Year, IsBiome):
+def get_GlobLC(Year, IsBiome, LandCover = 'COPERNICUS/Landcover/100m/Proba-V-C3/Global/2019'):
   '''Returns a proper land cover mosaic based on a given region and year.
 
      Args:
        Region(ee.Geometry): A spatial region defining the location of the mosaic;
        Year(int or string): The target year;
-       IsBiome(Boolean): Flag indicating if a biome map will be returned. Only when RF model is used'''
+       IsBiome(Boolean): Flag indicating if a biome map will be returned. Only when RF model is used
+       LandCover(string): Earth Engine asset ID of a custom land cover (either global or covering only the specified custom regions) to use for areas outside of Canada, which has to use the same classes as CGLS-LC100 Collection 3'''
   #==========================================================================================================
   # Choose a proper land cover image collection for Canada based on a given "Year"
   #==========================================================================================================
@@ -209,7 +210,7 @@ def get_GlobLC(Year, IsBiome):
   # The given "Region" might already be expended from original region, but here it is necessary to reexpend it
   # so that it can completely cover reprojected output result.    
   #==========================================================================================================  
-  global_LC = ee.Image('COPERNICUS/Landcover/100m/Proba-V-C3/Global/2019')  
+  global_LC = ee.Image(LandCover)
   global_LC = remap_classIDs(global_LC)  
 
   #==========================================================================================================

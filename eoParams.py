@@ -43,13 +43,17 @@ DefaultParams = {
     'scene_ID': '',
     'current_time': 0,  # The index in 'start_dates'/'end_dates'
     'current_region': '',
+    'land_cover': 'COPERNICUS/Landcover/100m/Proba-V-C3/Global/2019',
+                                 # Earth Engine asset ID of a custom land cover (either global or covering
+                                 # only the specified custom regions) to use for areas outside of Canada,
+                                 # which has to use the same classes as CGLS-LC100 Collection 3
 
     'time_str': ''
 }
 
 # all_param_keys = ['sensor', 'unit', 'year', 'nbYears', 'months', 'tile_names', 'prod_names', 'out_location', 'resolution',
 #                   'GCS_bucket', 'out_folder', 'export_style', 'projection', 'CloudScore', 'extra_bands',
-#                   'monthly', 'start_dates', 'end_dates', 'regions', 'scene_ID', 'current_time', 'current_region', 'time_str']
+#                   'monthly', 'start_dates', 'end_dates', 'regions', 'scene_ID', 'current_time', 'current_region', 'land_cover', 'time_str']
 
 
 MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
