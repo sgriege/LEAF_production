@@ -1598,7 +1598,14 @@ def custom_LEAF_production(Params, task_list):
   # Both time window and spatial region were customized 
   #==========================================================================================================
   else:  
-    SL2P_estimation(Params, task_list)
+    Params['current_tile'] = ''
+
+    for region in Params['regions'].keys():
+      Params = eoParams.set_spatial_region(Params, region)
+
+      for i_time_window in range(len(Params['start_dates'])):
+        Params = eoParams.set_current_time(Params, i_time_window)
+        SL2P_estimation(Params, task_list)
 
   
 

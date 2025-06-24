@@ -170,6 +170,7 @@ def set_spatial_region(inParams, region_name):
     return None
     
   inParams['current_region'] = region_name
+  inParams['region_str']     = region_name
 
   return inParams
 
